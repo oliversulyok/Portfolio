@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack-dev-server .",
     "build": "webpack .",
-    "test": "test"
+    "test": "test",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/oliversulyok/Portfolio/issues"
   },
-  "homepage": "https://github.com/oliversulyok/Portfolio#readme",
+  "homepage": "https://oliversulyok.github.io/Portfolio",
   "devDependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
@@ -36,6 +38,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-jest": "^27.2.1",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "path": "^0.12.7",
     "webpack": "^5.75.0",

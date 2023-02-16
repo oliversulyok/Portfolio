@@ -7,8 +7,8 @@
     "start": "webpack-dev-server .",
     "build": "webpack .",
     "test": "test",
-    "pre-deploy" : "npm run build",
-    "deploy" : "gh-pages -d build"
+    "pre-deploy" : "webpack . --env production",
+    "deploy" : "npm run pre-deploy & gh-pages -d public"
   },
   "repository": {
     "type": "git",

@@ -10,12 +10,15 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 /*We are basically telling webpack to take index.js from entry. Then check for all file extensions in resolve. 
 After that apply all the rules in module.rules and produce the output and place it in main.js in the public folder.*/
 
-module.exports={
+module.exports=(env) => {
+    let production = env.production ? "production":"development";
+    console.log('Output: ', production);
+    return {
     /** "mode"
      * the environment - development, production, none. tells webpack 
      * to use its built-in optimizations accordingly. default is production 
      */
-    mode: "development", 
+    mode: production, 
     plugins: [HTMLWebpackPluginConfig],
     /** "entry"
      * the entry point 
@@ -83,5 +86,5 @@ module.exports={
                 use:  'babel-loader' //loader which we are going to use
             }
         ]
-    }
+    }}
 }

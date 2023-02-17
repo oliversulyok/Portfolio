@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server .",
     "build": "webpack .",
-    "test": "jest",
+    "test": "jest --watch",
     "pre-deploy": "webpack . --env production",
     "deploy": "npm run pre-deploy & gh-pages -d public"
   },

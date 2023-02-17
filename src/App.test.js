@@ -3,7 +3,9 @@ import App from "./App"
 import React from 'react'
 
 describe('App', () => {
-test('Do nothing', async () => {
+test('Print top bar', async () => {
     render(<App />);
+    var topBar = screen.getByText("TopBar")
+    expect(topBar).toBeVisible;
 })
 })

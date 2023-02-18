@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/public/index.html',
   filename: 'index.html',
-  inject: 'body'
+  inject: false
 });
 
 /*We are basically telling webpack to take index.js from entry. Then check for all file extensions in resolve. 
@@ -23,7 +23,7 @@ module.exports=(env) => {
     /** "entry"
      * the entry point 
      */
-    entry: "./index.js", 
+    entry: "./index.jsx", 
     output: {
         /** "path"
          * the folder path of the output file 

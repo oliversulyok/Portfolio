@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "Trial portfolio site for github",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "start": "webpack-dev-server .",
     "build": "webpack .",
@@ -56,6 +56,11 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.17",
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "framer-motion": "^9.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

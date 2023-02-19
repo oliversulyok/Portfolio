@@ -20,6 +20,7 @@ const App = () => {
         setVisiblePage(key)
     };
     renderCounter.current = renderCounter.current + 1;
+    // Not sure if pages.map is optimal https://stackoverflow.com/questions/36677733/why-shouldnt-jsx-props-use-arrow-functions-or-bind
     return (
     <ChakraProvider>
     <Grid   templateAreas={`"header header"
@@ -37,7 +38,7 @@ const App = () => {
                 <Box as='button' borderRadius='md' color='white' bg='black' key={idx} 
                 onClick={() => handlePageChange(page)}>{page}{console.log('rendered')}</Box>
             ))}
-        </GridItem>
+        </GridItem> 
     <Flex>
         <Text>{visiblePage}</Text>
         <ImageDrawer></ImageDrawer>

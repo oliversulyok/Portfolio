@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useRef} from "react";
 import { ImageDrawer } from "./Components/";
 import { Box, ChakraProvider, Flex, Spacer, extendTheme, Text, Grid, GridItem } from '@chakra-ui/react'
 
@@ -11,13 +11,15 @@ const theme = extendTheme({
     }
 })
 
+
 const App = () => {
+    const renderCounter  = useRef(0);
     const pages = ['Home','About me', 'Projects', 'Contact'];
     const[visiblePage,setVisiblePage] = useState(pages[0]);
     const handlePageChange = (key) => {
         setVisiblePage(key)
     };
-    
+    renderCounter.current = renderCounter.current + 1;
     return (
     <ChakraProvider>
     <Grid   templateAreas={`"header header"
@@ -32,12 +34,14 @@ const App = () => {
             >
         <GridItem pl='2' bg='orange.300' area={'header'}>
         {pages.map((page, idx) => (
-                <Box as='button' borderRadius='md' color='white' bg='black' key={idx} onClick={() => handlePageChange(page)}>{page}</Box>
-            ) )}
+                <Box as='button' borderRadius='md' color='white' bg='black' key={idx} 
+                onClick={() => handlePageChange(page)}>{page}{console.log('rendered')}</Box>
+            ))}
         </GridItem>
     <Flex>
         <Text>{visiblePage}</Text>
         <ImageDrawer></ImageDrawer>
+        {renderCounter.current}
     </Flex>
     </Grid>
     </ChakraProvider>

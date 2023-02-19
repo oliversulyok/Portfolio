@@ -13,7 +13,7 @@ test('Print top bar with proper content', async () => {
     render(<App />);
     const Pages = ['Home','About me', 'Projects', 'Contact']
     Pages.map((page)=>{
-        expect(screen.getByText(page)).toBeVisible();
+        expect(screen.getAllByText(page)[0]).toBeVisible();
     })
 });
 test('Print mainPage link', async () => {

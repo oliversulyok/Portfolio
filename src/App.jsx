@@ -1,5 +1,6 @@
 import React,{useState} from "react";
-import { Box, ChakraProvider, Flex, Spacer, extendTheme, Text } from '@chakra-ui/react'
+import { ImageDrawer } from "./Components/";
+import { Box, ChakraProvider, Flex, Spacer, extendTheme, Text, Grid, GridItem } from '@chakra-ui/react'
 
 const theme = extendTheme({
     // https://chakra-ui.com/docs/styled-system/customize-theme
@@ -19,15 +20,26 @@ const App = () => {
     
     return (
     <ChakraProvider>
-    <Flex>
+    <Grid   templateAreas={`"header header"
+                  "nav main"
+                  "nav footer"`}
+            gridTemplateRows={'50px 1fr 30px'}
+            gridTemplateColumns={'150px 1fr'}
+            h='200px'
+            gap='1'
+            color='blackAlpha.700'
+            fontWeight='bold'
+            >
+        <GridItem pl='2' bg='orange.300' area={'header'}>
         {pages.map((page, idx) => (
-            <Box as='button' borderRadius='md' color='white' bg='black' key={idx} onClick={() => handlePageChange(page)}>{page}</Box>
-        ) )}
-    </Flex>
+                <Box as='button' borderRadius='md' color='white' bg='black' key={idx} onClick={() => handlePageChange(page)}>{page}</Box>
+            ) )}
+        </GridItem>
     <Flex>
         <Text>{visiblePage}</Text>
+        <ImageDrawer></ImageDrawer>
     </Flex>
-    
+    </Grid>
     </ChakraProvider>
     );
 }

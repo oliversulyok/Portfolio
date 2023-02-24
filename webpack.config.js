@@ -1,5 +1,7 @@
 const path = require("path");
 
+
+
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/public/index.html',
@@ -14,6 +16,7 @@ module.exports=(env) => {
     let production = env.production ? "production":"development";
     console.log('Output: ', production);
     return {
+    devtool : 'inline-source-map',
     /** "mode"
      * the environment - development, production, none. tells webpack 
      * to use its built-in optimizations accordingly. default is production 

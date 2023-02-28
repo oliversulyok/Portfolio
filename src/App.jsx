@@ -45,7 +45,6 @@ const App = () => {
         </GridItem> 
     <Flex>
         <Text>{visiblePage}</Text>
-        <ImageDrawer></ImageDrawer>
         {renderCounter.current}
     </Flex>
     </Grid>

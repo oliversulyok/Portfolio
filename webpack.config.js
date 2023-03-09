@@ -1,10 +1,12 @@
 const path = require("path");
 
+
+
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/public/index.html',
   filename: 'index.html',
-  inject: 'body'
+  inject: false
 });
 
 /*We are basically telling webpack to take index.js from entry. Then check for all file extensions in resolve. 
@@ -14,6 +16,7 @@ module.exports=(env) => {
     let production = env.production ? "production":"development";
     console.log('Output: ', production);
     return {
+    devtool : 'inline-source-map',
     /** "mode"
      * the environment - development, production, none. tells webpack 
      * to use its built-in optimizations accordingly. default is production 
@@ -23,7 +26,7 @@ module.exports=(env) => {
     /** "entry"
      * the entry point 
      */
-    entry: "./index.js", 
+    entry: "./index.jsx", 
     output: {
         /** "path"
          * the folder path of the output file 

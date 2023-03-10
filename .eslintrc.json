@@ -2,5 +2,16 @@
     "extends": "airbnb",
     "env": {
         "browser": true
-    }
+    },
+    "overrides": [
+        {
+          "files": [
+            "*.test.js",
+            "*.test.jsx"
+          ],
+          "env": {
+            "jest": true
+          }
+        }
+      ]
 }

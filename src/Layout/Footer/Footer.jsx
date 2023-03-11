@@ -1,12 +1,12 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { Textarea, Text } from '@chakra-ui/react'
+import { Textarea, Text } from '@chakra-ui/react';
 
-export const Footer = (props) => {
-
-    return(
-        <div>
-        <Textarea placeholder="template"></Textarea>
-        <Text>{props.refreshCnt}</Text>
-        </div>
-    )
+export default function Footer({ refreshCnt }) {
+  return (
+    <div>
+      <Textarea placeholder="template" />
+      <Text>{refreshCnt}</Text>
+    </div>
+  );
 }

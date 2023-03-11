@@ -1,11 +1,10 @@
 import React from 'react';
-import { Textarea } from '@chakra-ui/react'
+import { Textarea } from '@chakra-ui/react';
 
-export const Header = () => {
-
-    return(
-        <div>
-        <Textarea></Textarea>
-        </div>
-    )
+export default function Header() {
+  return (
+    <div>
+      <Textarea />
+    </div>
+  );
 }

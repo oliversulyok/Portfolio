@@ -26,7 +26,6 @@ function App() {
   const pages = ['Home', 'About me', 'Projects', 'Contact'];
   const [visiblePage, setVisiblePage] = useState(pages[0]);
   const handlePageChange = (key) => {
-    console.log('clicked');
     if (visiblePage !== key) {
       setVisiblePage(key);
       pageCounter.current += 1;

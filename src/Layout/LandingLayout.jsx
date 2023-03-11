@@ -5,7 +5,6 @@ import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
 export default function LandingLayout({ children }) {
-  console.log(children);
   return (
     <Flex
       direction="column"

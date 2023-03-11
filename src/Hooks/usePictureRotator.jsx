@@ -1,20 +1,21 @@
-import {useState} from 'react';
+/* eslint-disable import/prefer-default-export */
+import { useState } from 'react';
 
-export const usePictureRotator = (image_array) => {
-    const [visible_image , setVisibleImage] = useState(0);
-    const handleNextImage = () => {
-        if (visible_image < image_array.length - 1) {
-            setVisibleImage(visible_image => visible_image + 1);
-        }
+export const usePictureRotator = (imageArray) => {
+  const [visibleImage, setVisibleImage] = useState(0);
+  const handleNextImage = () => {
+    if (visibleImage < imageArray.length - 1) {
+      setVisibleImage((currImage) => currImage + 1);
     }
-    const handlePrevImage = () => {
-        if (visible_image > 0) {
-            setVisibleImage(visible_image => visible_image - 1);
-        }
+  };
+  const handlePrevImage = () => {
+    if (visibleImage > 0) {
+      setVisibleImage((currImage) => currImage - 1);
     }
-    return {
-        visible_image,
-        handleNextImage,
-        handlePrevImage
-    }
-    };
+  };
+  return {
+    visible_image: visibleImage,
+    handleNextImage,
+    handlePrevImage,
+  };
+};

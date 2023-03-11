@@ -2,8 +2,8 @@ import React, { useState, useRef } from 'react';
 import {
   Box, ChakraProvider, Flex, extendTheme, Grid, GridItem,
 } from '@chakra-ui/react';
-import { ImageDrawer } from './Components';
-import { Header, Footer } from './Layout';
+// import ImageDrawer from './Components';
+import LandingLayout from './Layout';
 
 const theme = extendTheme({
   // https://chakra-ui.com/docs/styled-system/customize-theme
@@ -20,13 +20,14 @@ const theme = extendTheme({
   },
 });
 
-function App(props) {
+function App() {
   const renderCounter = useRef(0);
   const pageCounter = useRef(0);
   const pages = ['Home', 'About me', 'Projects', 'Contact'];
   const [visiblePage, setVisiblePage] = useState(pages[0]);
   const handlePageChange = (key) => {
-    if (visiblePage != key) {
+    console.log('clicked');
+    if (visiblePage !== key) {
       setVisiblePage(key);
       pageCounter.current += 1;
     }
@@ -69,9 +70,9 @@ function App(props) {
         m="0 auto"
         bg="blackAlpha.300"
       >
-        <Header />
-        {visiblePage}
-        <Footer refreshCnt={renderCounter.current} />
+        <LandingLayout>
+          {visiblePage}
+        </LandingLayout>
       </Flex>
     </ChakraProvider>
   );

@@ -1,25 +1,26 @@
-import React,  {useState, useEffect}  from "react";
+import React, { useState, useEffect } from 'react';
 import { usePictureRotator } from '../../Hooks/usePictureRotator';
 
-export const ImageDrawer = () => {
+export default function ImageDrawer() {
+  // https://blog.logrocket.com/progressive-image-loading-react-tutorial/
 
-    // https://blog.logrocket.com/progressive-image-loading-react-tutorial/
-    
-    const [image_array, updateImageArray] = useState(new Array);
-    const new_items = [1,2,3,4,5]
+  const [imageArray, updateImageArray] = useState([]);
+  const newItems = [1, 2, 3, 4, 5];
 
-    useEffect(() => {
-        new_items.map(item => (updateImageArray(image_array => {
-            return [...image_array,item]
-            })));
-      }, []);
-    const { visible_image, handleNextImage, handlePrevImage  } = usePictureRotator(image_array);
-    // <img src={require('/images/image-name.png')} />
-    return (
-        <div>
-            {image_array[visible_image]}
-            <button onClick={handleNextImage}>nextImage</button>
-            <button onClick={handlePrevImage}>prevImage</button>
-        </div>
-    )
+  useEffect(() => {
+    newItems.map((item) => (updateImageArray((array) => [...array, item])));
+  }, []);
+  const {
+    visible_image: visibleImage,
+    handleNextImage,
+    handlePrevImage,
+  } = usePictureRotator(imageArray);
+  // <img src={require('/images/image-name.png')} />
+  return (
+    <div>
+      {imageArray[visibleImage]}
+      <button onClick={handleNextImage} type="button">nextImage</button>
+      <button onClick={handlePrevImage} type="button">prevImage</button>
+    </div>
+  );
 }
